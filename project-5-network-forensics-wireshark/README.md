@@ -24,12 +24,12 @@ I analyzed a packet capture file to **reconstruct a full attack chain** — from
 ### Phase 1 — Finding a Usable Lab File
 Needed a real attack capture to analyze. Most malware analysis rooms on TryHackMe are paid. Found a free room called **"h4cked"** instead, which provides a network capture file directly in Task 1 — no extra setup required.
 
-![Lab File Found](./screenshots/0_Lab_File_Setup.png)
+![Lab File Found](./screenshots/0_Lab_File_Setup.PNG)
 
 ### Phase 2 — Loading the Capture in Wireshark
 Opened Wireshark, went to **File > Open**, and loaded the capture file. Thousands of raw packets appeared immediately — too many to scan manually.
 
-![Wireshark File Open Success](./screenshots/1_Wireshark_File_Open_Success.png)
+![Wireshark File Open Success](./screenshots/1_Wireshark_File_Open_Success.PNG)
 
 ### Phase 3 — Isolating the Attacker's Traffic
 With thousands of packets on screen, applied the filter:
@@ -40,19 +40,19 @@ This isolated all FTP-related packets. Found a server response: `220 Hello FTP W
 
 **Result:** Attacker IP identified as `192.168.0.147`. Victim machine IP: `192.168.0.115`.
 
-![FTP Traffic Filtered](./screenshots/2_FTP_Traffic_Filtered.png)
+![FTP Traffic Filtered](./screenshots/2_FTP_Traffic_Filtered.PNG)
 
 ### Phase 4 — Capturing the Brute Force Attempt
 FTP sends credentials in plaintext, so anything the attacker types is visible. Scrolled through the filtered packets and found repeated login attempts:
 - Username: `jenny`
 - Failed password attempts: `12345`, `password`, `12345678`
 
-![Hacker Credentials Found](./screenshots/3_Hacker_Credentials_Found.png)
+![Hacker Credentials Found](./screenshots/3_Hacker_Credentials_Found.PNG)
 
 ### Phase 5 — Confirming the Breach
 Continued scrolling and found packet #305: `230 Login successful`. The correct password was `password123`. Immediately after login, the attacker ran `PWD` and the server confirmed the working directory: `/var/www/html` — the main web folder on a Linux server.
 
-![Login Success and Directory](./screenshots/4_Hacker_Login_Success_and_Directory.png)
+![Login Success and Directory](./screenshots/4_Hacker_Login_Success_and_Directory.PNG)
 
 ### Phase 6 — Error: Manual Scrolling Failed to Find the Payload
 Knew the attacker had likely uploaded a malicious file after gaining access, but the surrounding traffic volume was too high to spot it by scrolling.
@@ -63,7 +63,7 @@ ftp.request.command == "STOR"
 ```
 `STOR` is the FTP command for uploading a file. This filter cut out all unrelated traffic and surfaced packet #425 directly: `Request: STOR shell.php` — a PHP web shell backdoor.
 
-![Malware File Upload Detected](./screenshots/5_Malware_File_Upload_Detected.png)
+![Malware File Upload Detected](./screenshots/5_Malware_File_Upload_Detected.PNG)
 
 ### Phase 7 — Confirming Upload and Privilege Escalation
 Cleared the command-specific filter and went back to the simple `ftp` filter to check the final packets.
@@ -72,7 +72,7 @@ Cleared the command-specific filter and went back to the simple `ftp` filter to 
 - Packet #438: `SITE CHMOD 777 shell.php` — attacker set full read/write/execute permissions on the uploaded file so it could be run from the browser.
 - Attacker then issued `QUIT` and disconnected.
 
-![Transfer Complete and Permissions](./screenshots/6_Malware_Transfer_Complete_and_Permissions.png)
+![Transfer Complete and Permissions](./screenshots/6_Malware_Transfer_Complete_and_Permissions.PNG)
 
 ---
 
