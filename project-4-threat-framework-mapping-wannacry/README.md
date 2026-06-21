@@ -49,6 +49,11 @@ Switched from the attacker's perspective to the defender's by opening the MITRE 
 
 ---
 
+## What I Got Wrong
+Tried using MITRE ATT&CK's internal search bar to look up WannaCry by name. It returned "No Results" instead of the expected match. Had to go around it by navigating directly to the Software database and locating the entry by its ID (S0366) instead of by name search.
+
+---
+
 ## Key Takeaways
 - WannaCry's core weakness for defenders is its reliance on an **unpatched network protocol (SMB)** to spread laterally — patching alone closes the primary attack vector.
 - Chasing file hashes is a weak detection strategy since attackers can change them trivially. Detecting the malware's **behavior** (unauthorized process creation, anomalous service creation) is far more durable, because that's harder for an attacker to alter without changing how the malware fundamentally operates.
