@@ -25,27 +25,27 @@ I analyzed the 2017 **WannaCry ransomware** attack by mapping it across three in
 ### Phase 1 — Establishing the Baseline
 Opened the MITRE ATT&CK Framework's official database to use as the reference point for the investigation — the global matrix of known adversary tactics and techniques.
 
-![MITRE ATT&CK Framework Home](./screenshots/1_MITRE_ATTACK_Framework_Home.PNG)
+![MITRE ATT&CK Framework Home](./screenshots/SS-1_Mitre_Attack_Framework_Home.PNG)
 
 ### Phase 2 — Extracting WannaCry's Technical Profile
 Navigated to the Software database and located WannaCry's profile (ID: **S0366**) to pull its documented Tactics, Techniques, and Procedures (TTPs) — the specific actions the malware took to spread and lock down systems.
 
-![WannaCry Malware Technique Mapping](./screenshots/2_WannaCry_Malware_Technique_Mapping.PNG)
+![WannaCry Malware Technique Mapping](./screenshots/SS-2_WannaCry_Technique_Mapping.PNG)
 
 ### Phase 3 — Mapping Indicators to the Pyramid of Pain
 Categorized WannaCry's known indicators — file hashes, network domains, and TTPs — against the Pyramid of Pain model. File hashes sit at the bottom (easy for an attacker to change); the malware's actual operational behavior, like exploiting SMB port 445, sits at the top (hardest for an attacker to change, highest "pain" if blocked).
 
-![Pyramid of Pain Defense Analysis](./screenshots/3_Pyramid_of_Pain_Defense_Analysis.PNG)
+![Pyramid of Pain Defense Analysis](./screenshots/SS-3_Pyramid_of_Pain_Notes.PNG)
 
 ### Phase 4 — Drilling Into Detection Strategy
 Drilled into technique **T1543** (Create or Modify System Process) to pull the specific detection guidance: monitoring for unusual use of system utilities like `sc.exe` and `powershell.exe`, which WannaCry abuses to create a fake service (`mssecsvc2.0`) for persistence.
 
-![T1543 Process Detection Strategy](./screenshots/4_T1543_Process_Detection_Strategy.PNG)
+![T1543 Process Detection Strategy](./screenshots/SS-4_WannaCry_Detection_Controls.PNG)
 
 ### Phase 5 — Mapping Defensive Countermeasures
 Switched from the attacker's perspective to the defender's by opening the MITRE D3FEND matrix. Mapped specific architectural controls relevant to this attack — process self-modification detection and network traffic analysis — to the techniques identified in the earlier phases.
 
-![MITRE D3FEND Countermeasure Matrix](./screenshots/5_MITRE_D3FEND_Countermeasure_Matrix.PNG)
+![MITRE D3FEND Countermeasure Matrix](./screenshots/SS-5_Mitre_D3fend_Defensive_Matrix.PNG)
 
 ---
 
@@ -64,11 +64,11 @@ This is the core workflow of a Threat Intelligence or Detection Engineering role
 ## Evidence & Screenshots
 | Screenshot | What It Shows |
 |---|---|
-| `1_MITRE_ATTACK_Framework_Home.PNG` | MITRE ATT&CK Matrix homepage / baseline reference |
-| `2_WannaCry_Malware_Technique_Mapping.PNG` | WannaCry's profile (S0366) and documented TTPs |
-| `3_Pyramid_of_Pain_Defense_Analysis.PNG` | WannaCry indicators mapped to the Pyramid of Pain |
-| `4_T1543_Process_Detection_Strategy.PNG` | T1543 detection strategy — process monitoring guidance |
-| `5_MITRE_D3FEND_Countermeasure_Matrix.PNG` | Defensive countermeasures mapped from D3FEND |
+| `SS-1_Mitre_Attack_Framework_Home.PNG` | MITRE ATT&CK Matrix homepage / baseline reference |
+| `SS-2_WannaCry_Technique_Mapping.PNG` | WannaCry's profile (S0366) and documented TTPs |
+| `SS-3_Pyramid_of_Pain_Notes.PNG` | WannaCry indicators mapped to the Pyramid of Pain |
+| `SS-4_WannaCry_Detection_Controls.PNG` | T1543 detection strategy — process monitoring guidance |
+| `SS-5_Mitre_D3fend_Defensive_Matrix.PNG` | Defensive countermeasures mapped from D3FEND |
 
 ---
 
