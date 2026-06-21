@@ -24,7 +24,6 @@ I analyzed a packet capture file to **reconstruct a full attack chain** — from
 ### Phase 1 — Finding a Usable Lab File
 Needed a real attack capture to analyze. Most malware analysis rooms on TryHackMe are paid. Found a free room called **"h4cked"** instead, which provides a network capture file directly in Task 1 — no extra setup required.
 
-![Lab File Found](./screenshots/0_Lab_File_Setup.PNG)
 
 ### Phase 2 — Loading the Capture in Wireshark
 Opened Wireshark, went to **File > Open**, and loaded the capture file. Thousands of raw packets appeared immediately — too many to scan manually.
@@ -95,7 +94,6 @@ This is the core skill of incident response and SOC Tier 1/2 work: given a packe
 ## Evidence & Screenshots
 | Screenshot | What It Shows |
 |---|---|
-| `0_Lab_File_Setup.png` | Free TryHackMe room and capture file located |
 | `1_Wireshark_File_Open_Success.png` | Capture file loaded, raw packets visible |
 | `2_FTP_Traffic_Filtered.png` | FTP filter applied, attacker IP identified |
 | `3_Hacker_Credentials_Found.png` | Brute-force login attempts captured in plaintext |
