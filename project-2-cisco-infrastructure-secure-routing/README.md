@@ -143,6 +143,7 @@ This is the exact failure mode behind many real network security incidents — a
 | File | Description |
 |------|-------------|
 | `README.md` | Full project documentation |
+| `Project 2.pkt` | Packet Tracer network topology file |
 
 ---
 
