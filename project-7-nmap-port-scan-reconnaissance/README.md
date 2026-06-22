@@ -9,6 +9,8 @@
 ## Objective
 I ran a port scan against a public, intentionally vulnerable test target to check which common ports were open, closed, or filtered — and to correctly interpret what each result actually means. The key lesson of this project ended up being about **reading scan results accurately**, not just running a scan.
 
+*Note: This scan was run through a web-based scanner (HackerTarget). Project 3 (Automated Port & Service Scanner) covers running and automating Nmap directly via Python — a different angle on the same tool.*
+
 ---
 
 ## Target & Tool
