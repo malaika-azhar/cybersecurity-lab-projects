@@ -9,6 +9,8 @@
 ## Objective
 I built a Python script that **automates port scanning using Nmap**, so I could run a scan and get **open ports, host status, and running service versions** printed automatically — instead of manually typing Nmap commands and reading raw terminal output every time.
 
+*Note: This project focuses on automating a scan using a Python script. Project 7 (Nmap Port Scan Reconnaissance) focuses on a different skill — correctly interpreting scan results (filtered vs. open) rather than scripting the scan itself.*
+
 ---
 
 ## Tools Used
@@ -28,25 +30,25 @@ Installed Python with PATH enabled, then installed the `python-nmap` library:
 ```
 pip install python-nmap
 ```
-![Python Installation](./screenshots/1_Python_Installation.PNG)
+![Python Installation](./screenshots/1_Python_Installation.png)
 
 ### Phase 2 — Script Creation
 Wrote the initial version of `scanner.py` and saved it in a project folder. (Note: this version did not yet include the `--unprivileged` flag — that was added later in Phase 6 as part of fixing the Nmap scan error.)
 
 [View final scanner.py](./scanner.py)
 
-![Scanner Code](./screenshots/2_Scanner_Code.PNG)
+![Scanner Code](./screenshots/2_Scanner_Code.png)
 
 ### Phase 3 — Error: Hidden File Extension
 Running `python scanner.py` failed with "file not found." Used `dir` to inspect the folder and found **Windows had silently saved the file as `scanner.py.txt`** instead of `scanner.py`.
 
-![Extension Error](./screenshots/3_Extension_Error_Check.PNG)
+![Extension Error](./screenshots/3_Extension_Error_Check.png)
 
 **Fix:** Ran this command, which **removed the `.txt` extension and corrected the filename**:
 ```
 ren scanner.py.txt scanner.py
 ```
-![File Renamed](./screenshots/4_File_Renamed_Fix.PNG)
+![File Renamed](./screenshots/4_File_Renamed_Fix.png)
 
 ### Phase 4 — Error: Nmap Not Installed / Stale PATH
 Script ran but failed because **Nmap was only downloaded, not installed**. Installed Nmap and Npcap as administrator. After install, a second error (`'python' is not recognized`) appeared because **the open CMD session hadn't refreshed its PATH**.
@@ -61,7 +63,7 @@ While testing different scan arguments during a later run, ran the script with a
 xml.etree.ElementTree.ParseError: no element found: line 1, column 0
 ```
 
-![Invalid Flag Error](./screenshots/5_Nmap_Path_Error.PNG)
+![Invalid Flag Error](./screenshots/5_Nmap_Path_Error.png)
 
 **Fix:** Replaced the invalid flag with the correct, valid Nmap arguments (`-Pn --unprivileged`) in Phase 6.
 
@@ -81,7 +83,7 @@ State: up
 ```
 **Script successfully returned host status without errors.**
 
-![Final Success](./screenshots/6_Final_Scan_Success.PNG)
+![Final Success](./screenshots/6_Final_Scan_Success.png)
 
 ---
 
@@ -105,12 +107,12 @@ A scanner like this is the starting point for **automated asset discovery** — 
 ## Evidence & Screenshots
 | Screenshot | What It Shows |
 |---|---|
-| `1_Python_Installation.PNG` | Python installed successfully |
-| `2_Scanner_Code.PNG` | scanner.py code in Notepad |
-| `3_Extension_Error_Check.PNG` | Hidden `.txt` extension discovered via `dir` |
-| `4_File_Renamed_Fix.PNG` | File renamed correctly to `scanner.py` |
-| `5_Nmap_Path_Error.PNG` | Nmap/PATH error before fix |
-| `6_Final_Scan_Success.PNG` | Successful scan result on localhost |
+| `1_Python_Installation.png` | Python installed successfully |
+| `2_Scanner_Code.png` | scanner.py code in Notepad |
+| `3_Extension_Error_Check.png` | Hidden `.txt` extension discovered via `dir` |
+| `4_File_Renamed_Fix.png` | File renamed correctly to `scanner.py` |
+| `5_Nmap_Path_Error.png` | Nmap/PATH error before fix |
+| `6_Final_Scan_Success.png` | Successful scan result on localhost |
 
 ---
 
