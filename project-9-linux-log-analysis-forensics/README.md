@@ -32,7 +32,7 @@ Ran `cat /var/log/syslog | head -n 20` to check overall system health. Found Ama
 ![Syslog Analysis](./screenshots/SS2_Syslog_Analysis.PNG)
 
 ### Phase 3 — NTP Time Sync Check
-Checked time synchronization logs to confirm the system clock source — important for trusting timestamps in the rest of the investigation. *(Confirm exact domain from your own screenshot — likely `ntp.ubuntu.com`.)*
+Checked time synchronization logs to confirm the system clock source — important for trusting timestamps in the rest of the investigation. The logs confirmed the machine contacted `ntp.ubuntu.com` to sync its clock.
 
 ![Timesyncd Logs](./screenshots/SS3_Syslog_Timesync.PNG)
 
