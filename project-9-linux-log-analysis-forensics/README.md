@@ -34,7 +34,7 @@ Ran `cat /var/log/syslog | head -n 20` to check overall system health. Found Ama
 ### Phase 3 — NTP Time Sync Check
 Checked time synchronization logs to confirm the system clock source — important for trusting timestamps in the rest of the investigation. *(Confirm exact domain from your own screenshot — likely `ntp.ubuntu.com`.)*
 
-| `SS3_Syslog_Timesync.PNG` | NTP time sync source confirmed |
+![Timesyncd Logs](./screenshots/SS3_Syslog_Timesync.PNG)
 
 ### Phase 4 — Auth Log Investigation: Brute Force Attack Found
 Checked `/var/log/auth.log` for authentication activity. Found the attacker's entry point: IP `10.14.94.82` running automated password-guessing attempts against `root`, `admin`, and `support` accounts.
@@ -76,7 +76,7 @@ This is exactly what a SOC or IR analyst does when a Linux server is suspected o
 |---|---|
 | `SS1_Linux_Logs_Connection.PNG` | SSH connection and root access established |
 | `SS2_Syslog_Analysis.PNG` | System health check via syslog |
-| `SS3_Timesyncd_Logs.PNG` | NTP time sync source confirmed |
+| `SS3_Syslog_Timesync.PNG` | NTP time sync source confirmed |
 | `SS4_Auth_Failed_Logins.PNG` | Brute force attempts from `10.14.94.82` |
 | `SS5_Auth_Sudo_User.PNG` | Backdoor user `xerxes` added to sudo group |
 | `SS6_Package_Manager_Logs.PNG` | `unzip` installation found in dpkg logs |
