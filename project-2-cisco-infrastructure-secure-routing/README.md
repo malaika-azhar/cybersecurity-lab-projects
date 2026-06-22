@@ -9,6 +9,8 @@
 ## Objective
 I built a small company network topology in Cisco Packet Tracer — configured a router and switch, assigned static IPs to three end devices, then implemented an Access Control List (ACL) to restrict a specific host's access. The goal was to practice both **basic network setup** and **firewall rule configuration**, including catching and fixing a real misconfiguration along the way.
 
+*Note: This is the foundational networking lab in this portfolio. Project 13 (VLAN Segmentation & Inter-VLAN Routing) builds directly on this same setup, adding VLANs, VTP synchronization, and advanced security hardening.*
+
 ---
 
 ## Tools Used
