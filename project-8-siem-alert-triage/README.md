@@ -24,7 +24,7 @@ I worked as a Tier 1 SOC Analyst inside TryHackMe's SOC Simulator (Scenario 1 �
 ### Phase 1 — Opening the Simulator
 Launched the SOC Simulator and confirmed Scenario 1 (Introduction to Phishing) loaded correctly.
 
-![Dashboard](./screenshots/SS1_Dashboard.PNG)
+![Dashboard](./screenshots/SS1_Introduction_to_Phishing_Dashboard.PNG)
 
 ### Phase 2 — Reviewing the Alert Queue
 Opened the alert queue — 5 pending alerts waiting. Picked up the first one:
@@ -112,7 +112,7 @@ This is the daily core of Tier 1 SOC work: high alert volume, most of it benign,
 ## Evidence & Screenshots
 | Screenshot | What It Shows |
 |---|---|
-| `SS1_Dashboard.PNG` | SOC Simulator loaded, Scenario 1 ready |
+| `SS1_Introduction_to_Phishing_Dashboard.PNG` | SOC Simulator loaded, Scenario 1 ready |
 | `SS2_Introduction_to_Phishing_Alert_Queue.PNG` | Alert queue, 5 pending alerts |
 | `SS3_Assigned_Alert.PNG` | Alert 8818 assigned for investigation |
 | `SS4_Alert_Details.PNG` | Raw email data for Alert 8818 |
