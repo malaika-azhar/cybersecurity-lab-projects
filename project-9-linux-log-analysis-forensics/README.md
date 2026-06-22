@@ -34,7 +34,7 @@ Ran `cat /var/log/syslog | head -n 20` to check overall system health. Found Ama
 ### Phase 3 — NTP Time Sync Check
 Checked time synchronization logs to confirm the system clock source — important for trusting timestamps in the rest of the investigation. *(Confirm exact domain from your own screenshot — likely `ntp.ubuntu.com`.)*
 
-![Timesyncd Logs](./screenshots/SS3_Timesyncd_Logs.PNG)
+| `SS3_Syslog_Timesync.PNG` | NTP time sync source confirmed |
 
 ### Phase 4 — Auth Log Investigation: Brute Force Attack Found
 Checked `/var/log/auth.log` for authentication activity. Found the attacker's entry point: IP `10.14.94.82` running automated password-guessing attempts against `root`, `admin`, and `support` accounts.
